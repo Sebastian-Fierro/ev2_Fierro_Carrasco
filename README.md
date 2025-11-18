@@ -1,1 +1,3 @@
-# certamen2react
+# Integrantes
+Sebastián Fierro
+Natalia Carrasco
