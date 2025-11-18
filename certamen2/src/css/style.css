@@ -1,0 +1,182 @@
+/* ===========================================================
+   TÍTULOS Y TEXTO
+   =========================================================== */
+
+.titulo {
+    text-align: center;     /* Centra el título principal */
+}
+
+
+
+/* ===========================================================
+   CARTA BASE
+   =========================================================== */
+
+.carta {
+    width: 110px;           /* Ancho estándar de carta */
+    height: 170px;          /* Alto estándar de carta */
+    position: relative;     /* Necesario para ubicar elementos hijos con absolute */
+    border-radius: 10px;    /* Bordes redondeados */
+    margin: 10px;           /* Separación entre cartas */
+    background: white;      /* Fondo blanco como una carta real */
+    border: 1px solid #ccc; /* Borde sutil */
+}
+
+
+
+/* ===========================================================
+   HEADER (zona del botón eliminar)
+   =========================================================== */
+
+.card-header {
+    height: 35px;               /* Tamaño del header */
+    padding: 4px 6px;
+    font-size: 12px;
+    border-bottom: 1px solid #ddd; /* Línea opcional */
+    display: flex;              /* Necesario para centrar el botón */
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* ===========================================================
+   NÚMEROS DE ESQUINA (arriba y abajo)
+   =========================================================== */
+
+.corner {
+    position: absolute;         /* Permite posicionarlos exactamente */
+    display: flex;
+    flex-direction: column;     /* Número y símbolo apilados */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.corner-top {
+    top: 40px;                  /* Justo debajo del header */
+    left: 5px;                  /* Esquina superior izquierda */
+}
+
+.corner-bottom {
+    bottom: 5px;                /* Esquina inferior derecha */
+    right: 5px;
+    transform: rotate(180deg);  /* Rotación para imitar cartas reales */
+}
+
+
+
+/* ===========================================================
+   SÍMBOLO CENTRAL GRANDE
+   =========================================================== */
+
+.symbol-center {
+    font-size: 48px;            /* Tamaño grande del símbolo */
+    position: absolute;         
+    top: 55%;                   /* Centro vertical */
+    left: 50%;                  /* Centro horizontal */
+    transform: translate(-50%, -50%); /* Centrado perfecto */
+}
+
+
+
+/* ===========================================================
+   COLORES DE PALOS (opcional, estilo real)
+   =========================================================== */
+
+.rojo {
+    color: #c20000;             /* Corazones ♦ y Diamantes ♥ */
+}
+
+.negro {
+    color: #000000;             /* Tréboles ♣ y Picas ♠ */
+}
+
+
+
+/* ===========================================================
+   BOTONES GENERALES
+   =========================================================== */
+
+/* Botón de eliminar (Bootstrap override opcional) */
+.btn-danger {
+    font-size: 12px;
+    padding: 2px 5px;
+}
+
+/* Botón primario personalizado */
+.btn-primary {
+    font-size: 15px;
+    padding: 6px 12px;
+}
+
+
+
+/* ===========================================================
+   BOTÓN PERSONALIZADO (para repartir/ocultar/mostrar)
+   =========================================================== */
+
+.button {
+    background-color: #ff6868;  /* Rojo suave */
+    border-radius: 10px;        /* Bordes redondeados */
+    padding: 10px 20px;         /* Tamaño */
+    color: #750000;             /* Texto */
+    border: none;               /* Sin borde */
+    cursor: pointer;            /* Mano al pasar el mouse */
+    transition: transform 0.15s ease; /* Animación suave */
+}
+
+.button:hover {
+    transform: scale(1.05);     /* Efecto de hover */
+}
+
+.button:active {
+    transform: scale(0.95);     /* Efecto al presionar */
+}
+
+
+/*
+-------------------------------PRUEBAS
+*/
+
+.flip-card {
+    perspective: 800px;
+}
+
+.flip-inner {
+    position: relative;
+    width: 110px;
+    height: 170px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flip-card.volteada .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+/* Cara frontal (tu carta real) */
+.flip-front {
+    background: white;
+}
+
+/* Dorso */
+.flip-back {
+    background: repeating-linear-gradient(
+        45deg,
+        #004aad,
+        #004aad 10px,
+        #3fa9f5 10px,
+        #3fa9f5 20px
+    );
+    border: 2px solid #002f6c;
+    transform: rotateY(180deg);
+}
