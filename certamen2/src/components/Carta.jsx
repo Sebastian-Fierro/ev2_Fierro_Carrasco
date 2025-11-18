@@ -1,53 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 import "bootstrap-icons/font/bootstrap-icons.css";
-import "../css/StyleV2.css";
+import { motion } from "framer-motion";
+import "../css/style.css";
 
-export function Carta({ cartaprops }) {
-  const [volteada, setVolteada] = useState(true); // inicia boca abajo
 
+export function Carta({ cartaprops, funcionEnviada }) {
   return (
-    <div 
-      className={`flip-card ${volteada ? "volteada" : ""}`}
-      onClick={() => setVolteada(!volteada)}
+    <motion.div
+      className="carta"
+
+      whileHover={{ scale: 1.05, rotate: 3 }}
+
+      transition={{ duration: 0.4 }}
     >
-      <div className="flip-inner">
-
-        {/* CARA FRONTAL (carta boca arriba) */}
-        <div className="flip-front">
-          <div className="carta">
-            
-            {/* Header con botón eliminar (si lo quieres aquí) */}
-            <div className="card-header">
-              <button className="btn btn-danger">
-                <i className="bi bi-trash"></i>
-              </button>
-            </div>
-
-            {/* Esquina superior */}
-            <div className="corner corner-top">
-              <span>{cartaprops.numero}</span>
-              <span>{cartaprops.palo}</span>
-            </div>
-
-            {/* Símbolo grande */}
-            <div className="symbol-center">
-              {cartaprops.palo}
-            </div>
-
-            {/* Esquina inferior */}
-            <div className="corner corner-bottom">
-              <span>{cartaprops.numero}</span>
-              <span>{cartaprops.palo}</span>
-            </div>
-
-          </div>
-        </div>
-
-        {/* CARA TRASERA (dorso) */}
-        <div className="flip-back">
-        </div>
-
+      <div className="card-header header-eliminar">
+        <button className="btn btn-danger btn-sm" onClick={funcionEnviada}>
+          <i className="bi bi-trash"></i>
+        </button>
       </div>
-    </div>
+
+      <div className="corner corner-top">
+        <span>{cartaprops.numero}</span>
+        <span>{cartaprops.palo}</span>
+      </div>
+
+      <div className="symbol-center">{cartaprops.palo}</div>
+
+      <div className="corner corner-bottom">
+        <span>{cartaprops.numero}</span>
+        <span>{cartaprops.palo}</span>
+      </div>
+    </motion.div>
   );
 }

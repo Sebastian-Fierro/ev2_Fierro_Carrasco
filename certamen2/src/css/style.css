@@ -13,14 +13,16 @@
    =========================================================== */
 
 .carta {
-    width: 110px;           /* Ancho estándar de carta */
-    height: 170px;          /* Alto estándar de carta */
-    position: relative;     /* Necesario para ubicar elementos hijos con absolute */
-    border-radius: 10px;    /* Bordes redondeados */
-    margin: 10px;           /* Separación entre cartas */
-    background: white;      /* Fondo blanco como una carta real */
-    border: 1px solid #ccc; /* Borde sutil */
+    width: 110px;
+    height: 170px;
+    position: relative;
+    border-radius: 10px;
+    margin: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    overflow: hidden;  /* ← ESTA ES LA CLAVE */
 }
+
 
 
 
